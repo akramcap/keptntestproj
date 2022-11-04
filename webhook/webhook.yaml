@@ -1,0 +1,18 @@
+apiVersion: webhookconfig.keptn.sh/v1beta1
+kind: WebhookConfig
+metadata:
+  name: webhook-configuration
+spec:
+  webhooks:
+    - type: sh.keptn.event.test.triggered
+      requests:
+        - url: http://argo-workflows.usdev01.us-east-1.dev.digitalecp.mcd.com/api/v1/workflows/locust-cluster/submit
+          payload: >-
+            {"resourceKind":"WorkflowTemplate","resourceName":"perf-testing","submitOptions":{"entrypoint":"perf-testing","parameters":["keptn-stage-name={{.data.stage}}","keptn-trigger-shkeptncontext={{.shkeptncontext}}","keptn-trigger-id={{.id}}","keptn-triggered=true","team-name={{.data.project}}","test-name={{.data.service}}","test-api-url=https://walletms-payments-us-perf02.stage-perf2.us-east-1.stage.digitalecp.mcd.com/exp/v1/wallet","test-vus=20","test-workers=2","test-runtime=30s","test-spawnrate=2","test-datafiles=[{\"file-path\": \"https://bitbucket.sharedtools.vet-tools.digitalecp.mcd.com/rest/api/1.0/projects/PE/repos/api-perf-testing/raw/data/payments/wallet/get/data.csv\", \"file-name\": \"data.csv\"}]","test-testfile=https://bitbucket.sharedtools.vet-tools.digitalecp.mcd.com/rest/api/1.0/projects/PE/repos/api-perf-testing/raw/data/payments/module/get/test.py","test-slofile=https://bitbucket.sharedtools.vet-tools.digitalecp.mcd.com/rest/api/1.0/projects/PE/repos/api-perf-testing/raw/data/payments/module/get/slo.yaml","test-slifile=https://bitbucket.sharedtools.vet-tools.digitalecp.mcd.com/rest/api/1.0/projects/PE/repos/api-perf-testing/raw/data/payments/module/get/sli.yaml","test-loadshapefile=''"]}}
+          headers:
+            - key: Content-type
+              value: application/json
+          method: POST
+      subscriptionID: c6f6a8e2-ab8a-4d25-a1da-3989f8507c31
+      sendFinished: false
+      sendStarted: true
