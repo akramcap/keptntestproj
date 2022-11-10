@@ -27,7 +27,7 @@ objectives:
     displayName: "Get Wallet throughput"
     pass:
       - criteria:
-          - ">5"
+          - ">2"
   - sli: AddCard_percentile_90
     displayName: "Add Card 90th Percentile"
     pass:
@@ -50,7 +50,7 @@ objectives:
     displayName: "Add Card throughput"
     pass:
       - criteria:
-          - ">5"
+          - ">2"
   - sli: UpdateCard_percentile_90
     displayName: "Update Card 90th Percentile"
     pass:
@@ -73,7 +73,7 @@ objectives:
     displayName: "Update Card throughput"
     pass:
       - criteria:
-          - ">5"
+          - ">2"
   - sli: DeleteCard_percentile_90
     displayName: "Delete Card 90th Percentile"
     pass:
@@ -96,7 +96,7 @@ objectives:
     displayName: "Delete Card throughput"
     pass:
       - criteria:
-          - ">5"
+          - ">2"
 total_score:
   pass: "90%"
   warning: "75%"
