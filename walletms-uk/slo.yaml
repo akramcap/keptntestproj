@@ -1,0 +1,102 @@
+---
+spec_version: '0.1.0'
+comparison:
+  compare_with: "single_result"
+  include_result_with_score: "pass"
+  aggregate_function: avg
+objectives:
+  - sli: GetWallet_percentile_90
+    displayName: "Get Wallet 90th Percentile"
+    pass:
+      - criteria:
+          - "<=90"
+    warning:
+      - criteria:
+          - "<=66"
+  - sli: GetWallet_requests
+    displayName: "Get Wallet requests"
+    pass:
+      - criteria:
+          - ">20"
+  - sli: GetWallet_failures
+    displayName: "Get Wallet failures"
+    pass:
+      - criteria:
+          - "<20"          
+  - sli: GetWallet_rps
+    displayName: "Get Wallet throughput"
+    pass:
+      - criteria:
+          - ">5"
+  - sli: AddCard_percentile_90
+    displayName: "Add Card 90th Percentile"
+    pass:
+      - criteria:
+          - "<=1360"
+    warning:
+      - criteria:
+          - "<=1314"
+  - sli: AddCard_requests
+    displayName: "Add Card requests"
+    pass:
+      - criteria:
+          - ">20"
+  - sli: AddCard_failures
+    displayName: "Add Card failures"
+    pass:
+      - criteria:
+          - "<20"          
+  - sli: AddCard_rps
+    displayName: "Add Card throughput"
+    pass:
+      - criteria:
+          - ">5"
+  - sli: UpdateCard_percentile_90
+    displayName: "Update Card 90th Percentile"
+    pass:
+      - criteria:
+          - "<=150"
+    warning:
+      - criteria:
+          - "<=115"
+  - sli: UpdateCard_requests
+    displayName: "Update Card requests"
+    pass:
+      - criteria:
+          - ">20"
+  - sli: UpdateCard_failures
+    displayName: "Update Card failures"
+    pass:
+      - criteria:
+          - "<20"          
+  - sli: UpdateCard_rps
+    displayName: "Update Card throughput"
+    pass:
+      - criteria:
+          - ">5"
+  - sli: DeleteCard_percentile_90
+    displayName: "Delete Card 90th Percentile"
+    pass:
+      - criteria:
+          - "<=1350"
+    warning:
+      - criteria:
+          - "<=1314"
+  - sli: DeleteCard_requests
+    displayName: "Delete Card requests"
+    pass:
+      - criteria:
+          - ">20"
+  - sli: DeleteCard_failures
+    displayName: "Delete Card failures"
+    pass:
+      - criteria:
+          - "<20"          
+  - sli: DeleteCard_rps
+    displayName: "Delete Card throughput"
+    pass:
+      - criteria:
+          - ">5"
+total_score:
+  pass: "90%"
+  warning: "75%"
