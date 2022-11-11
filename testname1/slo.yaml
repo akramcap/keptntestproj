@@ -5,6 +5,16 @@ comparison:
   include_result_with_score: "pass"
   aggregate_function: avg
 objectives:
+  - sli: total_requests
+    displayName: "total requests"
+    pass:
+      - criteria:
+          - ">20"
+  - sli: total_failures
+    displayName: "total failures"
+    pass:
+      - criteria:
+          - "<20"
   - sli: total_rps
     displayName: "throughput"
     pass:
