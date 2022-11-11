@@ -13,6 +13,7 @@ objectives:
     warning:
       - criteria:
           - "<=66"
+    weight: 0
   - sli: GetWallet_requests
     displayName: "Get Wallet requests"
     pass:
@@ -22,12 +23,14 @@ objectives:
     displayName: "Get Wallet failures"
     pass:
       - criteria:
-          - "<20"          
+          - "<20"
+    weight: 2
   - sli: GetWallet_rps
     displayName: "Get Wallet throughput"
     pass:
       - criteria:
           - ">2"
+    weight: 0
   - sli: AddCard_percentile_90
     displayName: "Add Card 90th Percentile"
     pass:
@@ -36,6 +39,7 @@ objectives:
     warning:
       - criteria:
           - "<=1314"
+    weight: 0
   - sli: AddCard_requests
     displayName: "Add Card requests"
     pass:
@@ -45,12 +49,14 @@ objectives:
     displayName: "Add Card failures"
     pass:
       - criteria:
-          - "<20"          
+          - "<20"
+    weight: 2
   - sli: AddCard_rps
     displayName: "Add Card throughput"
     pass:
       - criteria:
           - ">2"
+    weight: 0
   - sli: UpdateCard_percentile_90
     displayName: "Update Card 90th Percentile"
     pass:
@@ -74,6 +80,7 @@ objectives:
     pass:
       - criteria:
           - ">2"
+    weight: 0
   - sli: DeleteCard_percentile_90
     displayName: "Delete Card 90th Percentile"
     pass:
@@ -82,6 +89,7 @@ objectives:
     warning:
       - criteria:
           - "<=1314"
+    weight: 2
   - sli: DeleteCard_requests
     displayName: "Delete Card requests"
     pass:
@@ -91,12 +99,14 @@ objectives:
     displayName: "Delete Card failures"
     pass:
       - criteria:
-          - "<20"          
+          - "<20"
+    weight: 2
   - sli: DeleteCard_rps
     displayName: "Delete Card throughput"
     pass:
       - criteria:
           - ">2"
+    weight: 0
 total_score:
   pass: "90%"
   warning: "75%"
