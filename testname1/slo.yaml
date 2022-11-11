@@ -5,6 +5,11 @@ comparison:
   include_result_with_score: "pass"
   aggregate_function: avg
 objectives:
+  - sli: total_rps
+    displayName: "throughput"
+    pass:
+      - criteria:
+          - ">60"
   - sli: get_percentile_90
     displayName: "Get 90th Percentile"
     pass:
