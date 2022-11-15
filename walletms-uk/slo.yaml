@@ -5,52 +5,98 @@ comparison:
   include_result_with_score: "pass"
   aggregate_function: avg
 objectives:
-  - sli: total_percentile_90
-    displayName: "90th Percentile"
+  - sli: GetWallet_percentile_90
+    displayName: "Get Wallet 90th Percentile"
     pass:
       - criteria:
-          - "<=150"
+          - "<=200"
     warning:
       - criteria:
-          - "<=100"
-  - sli: total_requests
-    displayName: "total requests"
+          - "<=180"
+  - sli: GetWallet_requests
+    displayName: "Get Wallet requests"
     pass:
       - criteria:
-          - ">20"
-  - sli: total_failures
-    displayName: "total failures"
+          - ">5"
+  - sli: GetWallet_failures
+    displayName: "Get Wallet failures"
+    pass:
+      - criteria:
+          - "<20"
+  - sli: GetWallet_rps
+    displayName: "Get Wallet throughput"
+    pass:
+      - criteria:
+          - ">1"
+  - sli: AddCard_percentile_90
+    displayName: "Add Card 90th Percentile"
+    pass:
+      - criteria:
+          - "<=2500"
+    warning:
+      - criteria:
+          - "<=2000"
+  - sli: AddCard_requests
+    displayName: "Add Card requests"
+    pass:
+      - criteria:
+          - ">5"
+  - sli: AddCard_failures
+    displayName: "Add Card failures"
+    pass:
+      - criteria:
+          - "<20"
+  - sli: AddCard_rps
+    displayName: "Add Card throughput"
+    pass:
+      - criteria:
+          - ">1"
+  - sli: UpdateCard_percentile_90
+    displayName: "Update Card 90th Percentile"
+    pass:
+      - criteria:
+          - "<=2500"
+    warning:
+      - criteria:
+          - "<=2000"
+  - sli: UpdateCard_requests
+    displayName: "Update Card requests"
+    pass:
+      - criteria:
+          - ">2"
+  - sli: UpdateCard_failures
+    displayName: "Update Card failures"
     pass:
       - criteria:
           - "<20"          
-  - sli: total_rps
-    displayName: "throughput"
+  - sli: UpdateCard_rps
+    displayName: "Update Card throughput"
     pass:
       - criteria:
-          - ">60"
-  - sli: get_percentile_90
-    displayName: "Get 90th Percentile"
+          - ">1"
+  - sli: DeleteCard_percentile_90
+    displayName: "Delete Card 90th Percentile"
     pass:
       - criteria:
-          - "<=150"
+          - "<=2500"
     warning:
       - criteria:
-          - "<=100"
-  - sli: get_requests
-    displayName: "Get requests"
+          - "<=2000"
+  - sli: DeleteCard_requests
+    displayName: "Delete Card requests"
     pass:
       - criteria:
-          - ">20"
-  - sli: get_failures
-    displayName: "Get failures"
+          - ">5"
+  - sli: DeleteCard_failures
+    displayName: "Delete Card failures"
     pass:
       - criteria:
-          - "<20"          
-  - sli: get_rps
-    displayName: "Get throughput"
+          - "<20"
+  - sli: DeleteCard_rps
+    displayName: "Delete Card throughput"
     pass:
       - criteria:
-          - ">60"
+          - ">1"
 total_score:
   pass: "90%"
   warning: "75%"
